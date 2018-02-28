@@ -1,9 +1,14 @@
 import reddit
 import time
+import random
 
 if __name__ == '__main__':
-    while True:
-        reddit.random_submission()
-        reddit.random_reply()
-        # Wait 10 minutes to comment and post because of reddit rate limits
-        time.sleep(600)
+  while True:
+    postSubmission = random.choice([True, False])
+    if postSubmission:
+      reddit.random_submission()
+    time.sleep(random.randint(10, 30))
+    postReply = random.choice([True, False])
+    if postReply:
+      reddit.random_reply()
+    time.sleep(random.randint(600, 900))
